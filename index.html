@@ -7,28 +7,26 @@
     <script src="script.js"></script>
     <title>Lakeside Lost and Found</title>
 </head>
-<header>
-    <!-- Hamburger menu only on small screens and navigation bar on larger screens -->
-    <nav class="navbar">
-        <a href="#" class="nav-brand">Logo</a>
-        <ul class="nav-menu">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="items.html">Items</a></li>
-            <li><a href="report.html">Report Lost Item</a></li>
-            <li><a href="contact.html">Contact Us</a></li>
-        </ul>
-        <div class="hamburger"></div>
-            <span class="bar"></span>
-            <span class="bar"></span>
-            <span class="bar"></span>
-        </div>
-    </nav>
-</header>
     <body>
+        <header>
+            <!-- Hamburger menu only on small screens and navigation bar on larger screens -->
+            <div class="container">
+                <h2><span>Lakeside </span>Lost and Found</h2>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="items.html">Items</a>
+                    <a href="report.html">Report Lost Item</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+                <button class="hamburger">
+                    <div class="bar"></div>
+                </button>
+            </div>
+        </header>
         <!-- Hero with image of lost and found + txt and button -->
         <div class="hero-home">
             <div class="hero-content">
-                <h1>Lakeside Lost and Found</h1>
+                <h1>Find your items</h1>
                 <button onclick="window.location.href='items.html'">View Items</button>
             </div>
         </div>

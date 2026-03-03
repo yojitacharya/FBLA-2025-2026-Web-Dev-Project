@@ -180,7 +180,7 @@ header nav a {
 .slider-track {
     display: flex;
     gap: 30px;
-    animation: scrollTestimonials 30s linear infinite;
+    animation: scrollTestimonials 20s alternate infinite;
     /* change 6 to the num of final testimonials */
     width: calc(6 * (280px + 30px));
 }

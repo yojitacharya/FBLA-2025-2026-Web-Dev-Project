@@ -1,7 +1,47 @@
-.hamburger {
+* {
+    box-sizing: border-box;
+    font-family: 'Arial', sans-serif;
+    align-items: center;
+}
 
-    position: relative;
-    display: block;
+header {
+    background-color: #001f66;
+    padding: 15px 0;
+    margin-top: -10px;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+header h2 {
+    color: white;
+    margin: 0;
+}
+
+header nav {
+    display: flex;
+    gap: 30px;
+}
+
+header nav a {
+    color: white;
+    text-decoration: none;
+}
+
+
+
+/* Hamburger Menu for homepage */
+
+.hamburger {
+    display: none;
     width: 35px;
     height: 35px;
     cursor: pointer;
@@ -9,28 +49,56 @@
     background: none;
     outline: none;
     border: none;
-
+    padding: 4px 0;
 }
 
-.hamburger .bar, .hamburger:after, .hamburger:before {
+.hamburger .bar {
     width: 100%;
     height: 4px;
-    background-color:#FFF;
-    margin: 6px 0px;
-    transition: 0.4s;
-    content: '';
+    background-color: #FFF;
     display: block;
-}   
-
-.hamburger.is-active, .hamburger:after {
-    transform: rotate(45deg) translate(-9px, -8px);
+    transition: 0.4s;
+    transform-origin: center;
 }
 
-.hamburger.is-active, .hamburger:before {
-    transform: rotate(-45deg) translate(-8px, 6px);
+.hamburger .bar + .bar {
+    margin-top: 6px;
 }
 
+.hamburger.is-active .bar:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
 
-.hamburger.is-active .bar {
+.hamburger.is-active .bar:nth-child(2) {
     opacity: 0;
+}
+
+.hamburger.is-active .bar:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+@media (max-width: 768px) {
+    header nav {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 0px;
+    }
+    
+    header nav.is-open {
+        display: flex;
+    }
+
+    header nav a {
+        padding 12px o;
+        border-top 1px solid #444;
+    }
+
+    .hamburger {
+        display: block;
+    }
+
+    header {
+        position: relative;
+    }
 }

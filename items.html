@@ -4,6 +4,7 @@
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="stylesheet" href="style.css" />
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
         <script src="script.js"></script>
         <title>Lakeside Lost and Found</title>
     </head>
@@ -26,5 +27,22 @@
             </div>
         </header>
         <!-- Other hero image and hero content -->
+        <div class="hero-img">
+            <div class="hero-content">
+                <h1>Find your items</h1>
+                <button onclick="window.location.href = 'items.html'">View Items</button>
+            </div>
+        </div>
+        <main class="container">
+            <section class="items-section">
+                <h2>Lost Items</h2>
+                <div id="items-grid" class="items-grid" class="loading-grid">
+                    <p>Loading Items...</p>
+                </div>
+            </section>
+        </main>
+        <div id="claim-modal" class="modal">
+            <div class="modal-content" id="modal-body"></div>
+        </div>
     </body>
 </html>

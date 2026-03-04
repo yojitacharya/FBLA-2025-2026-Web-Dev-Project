@@ -88,6 +88,7 @@ async function startClaim(itemId) {
 
 function closeModal() {
   document.getElementById("claim-modal").style.display = "none";
+  document.getElementById("report-modal").style.display = "none";
 }
 
 async function submitClaim(itemId) {
@@ -124,3 +125,57 @@ window.onclick = function (event) {
   const modal = document.getElementById("claim-modal");
   if (event.target == modal) closeModal();
 };
+
+async function report() {
+  const modal = document.getElementById("report-modal");
+  const modalBody = document.getElementById("modal-body");
+     //  <input type="text" id="item-name" placeholder="What is this item called?">
+  modalBody.innerHTML = `
+    <div class="report-dialog">
+      <h3>Report a Lost Item</h3>
+      <input type="text" id="item-name" placeholder="What is this item called?" required>
+      <input type="text" id="contact" placeholder="Contact Info (Email or Phone)" required>
+      <textarea id="item-description" placeholder="Describe the item..." required></textarea>
+      <input type="file" id="item-img" placeholder="Image URL" (optional but recommended)">
+      <div class="modal-btns">
+        <button onclick="submitReport()">Submit</button>
+        <button class="cancelBtn" onclick="closeModal()">Cancel</button>
+      </div>
+    </div>
+  `;
+
+  modal.style.display = "flex";
+}
+
+async function submitReport() {
+  const name = document.getElementById("item-name").value;
+  const description = document.getElementById("item-description").value;
+  const contact = document.getElementById("contact").value;
+  if(imgInput) imgInput = document.getElementById("item-img");
+  let imgUrl; // come back and link these
+
+  if(!item-name || !description || !contact) {
+    alert("Please fill in all required fields.");
+    return;
+  }
+
+  const { error: reportError } = await _supabase.from("lostfound").insert([
+    {
+      name: item-name,
+      contact: contact,
+      description: description,
+      img_url: imgInput ? imgInput.value : null,
+    },
+  ]);
+
+  if (reportError) {
+    console.error("Error submitting your report:", reportError.message, reportError.details);
+    alert(`Error: ${reportError.message}`);
+    return;
+  }
+
+  alert("Report submitted successfully!");
+  closeModal();
+  fetchLostItems();
+
+}

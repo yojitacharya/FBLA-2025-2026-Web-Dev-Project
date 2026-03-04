@@ -217,7 +217,7 @@ header nav a {
         transform: translateX(-930px);
     }
 }
-
+/* lost items  and claim/report css */
 .items-grid {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
@@ -292,12 +292,12 @@ header nav a {
 }
 
 .cancel-btn {
-    background-color: #666;
+    background-color: #a81e1e;
     color: white;
 }
 
 .cancel-btn:hover {
-    background-color: #444;
+    background-color: #670b0b;
     color: white;
 }
 

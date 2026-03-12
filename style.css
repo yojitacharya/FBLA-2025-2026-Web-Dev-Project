@@ -41,9 +41,33 @@ nav a:hover {
     color: #d4b600;
 }
 
+.hero-img.roundabout {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("files/roundabout.png");
+    height: 65%;
+    margin-left: -10px;
+    margin-right: -10px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
+.hero-img.report {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("files/compass.jpg");
+    height: 95%;
+    margin-left: -10px;
+    margin-right: -10px;
+
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    position: relative;
+}
+
 .hero-img {
     background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("files/school-hallway.jpg");
-    height: 50%;
+    height: 65%;
     margin-left: -10px;
     margin-right: -10px;
 
@@ -303,4 +327,88 @@ header nav a {
 
 .item-claim {
     padding-bottom: 15px;
+}
+
+footer {
+    padding: 40px 0;
+    background-color: #001f66;
+    color: white;
+    margin-left: -10px;
+    margin-right: -10px;
+}
+
+.list-inline {
+    padding: 0;
+    list-style: none;
+    text-align: center;
+    font-size: 18px;
+    line-height: 1.6;
+    margin-bottom: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.list-inline-item {
+    padding: 0 10px;
+}
+
+.list-inline-item a {
+    color: white;
+    text-decoration: none;
+    opacity: 0.8;
+    transition-duration: 0.2s;
+}
+
+.list-inline-item a:hover {
+    opacity: 1;
+    color: #d4b600;
+}
+
+.copyright {
+    margin-top: 15px;
+    text-align: center;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.5);
+    margin-bottom: 0;
+}
+
+main {
+    max-width: 800px;
+    margin: 40px auto;
+    padding: 0 20px;
+    text-align: left;
+    line-height: 1.8;
+    color: #333;
+}
+
+main h1 {
+    color: #001f66;
+    font-size: 2rem;
+    margin-bottom: 15px;
+}
+
+main p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+main ul {
+    font-size: 1.1rem;
+    padding-left: 20px;
+    margin-bottom: 15px;
+}
+
+main ul li {
+    margin-bottom: 8px;
+}
+
+main a {
+    color: #001f66;
+    text-decoration: none;
+    transition-duration: 0.2s;
+}
+
+main a:hover {
+    color: #d4b600;
 }

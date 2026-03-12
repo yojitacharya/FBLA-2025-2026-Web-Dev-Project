@@ -129,7 +129,7 @@ window.onclick = function (event) {
 async function report() {
   const modal = document.getElementById("report-modal");
   const modalBody = document.getElementById("modal-body");
-     //  <input type="text" id="item-name" placeholder="What is this item called?">
+  //  <input type="text" id="item-name" placeholder="What is this item called?">
   modalBody.innerHTML = `
     <div class="report-dialog">
       <h3>Report a Lost Item</h3>
@@ -139,7 +139,7 @@ async function report() {
       <input type="file" id="item-img" placeholder="Image URL" (optional but recommended)">
       <div class="modal-btns">
         <button onclick="submitReport()">Submit</button>
-        <button class="cancelBtn" onclick="closeModal()">Cancel</button>
+        <button class="cancel-btn" onclick="document.getElementById('report-modal').style.display='none'">Cancel</button>
       </div>
     </div>
   `;
@@ -151,20 +151,19 @@ async function submitReport() {
   const name = document.getElementById("item-name").value;
   const description = document.getElementById("item-description").value;
   const contact = document.getElementById("contact").value;
-  if(imgInput) imgInput = document.getElementById("item-img");
-  let imgUrl; // come back and link these
+  const imgInput = document.getElementById("item-img");
 
-  if(!item-name || !description || !contact) {
+  if (!name || !description || !contact) {
     alert("Please fill in all required fields.");
     return;
   }
 
   const { error: reportError } = await _supabase.from("lostfound").insert([
     {
-      name: item-name,
+      name: name,
       contact: contact,
       description: description,
-      img_url: imgInput ? imgInput.value : null,
+      img_url: imgInput?.files?.[0] ? URL.createObjectURL(imgInput.files[0]) : null,
     },
   ]);
 
@@ -177,5 +176,4 @@ async function submitReport() {
   alert("Report submitted successfully!");
   closeModal();
   fetchLostItems();
-
 }

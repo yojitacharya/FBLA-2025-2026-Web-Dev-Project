@@ -1,6 +1,6 @@
 * {
     box-sizing: border-box;
-    font-family: "Arial", sans-serif;
+    font-family: "Inter", "Arial", sans-serif;
     align-items: center;
 }
 
@@ -9,26 +9,34 @@ html {
     align-items: center;
     text-align: center;
     height: 100%;
+    background-color: #f5f5f5;
+    color: #1a1a1a;
 }
 
 button {
     background-color: #fedb00;
     border: none;
     color: #001f66;
-    padding: 15px 32px;
+    padding: 12px 28px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 22px;
+    font-size: 16px;
+    font-weight: 600;
     cursor: pointer;
-    border-radius: 4px;
-    transition-duration: 0.3s;
+    border-radius: 6px;
+    letter-spacing: 0.3px;
+    transition:
+        background-color 0.2s,
+        box-shadow 0.2s,
+        transform 0.1s;
 }
 
 button:hover {
     background-color: #d4b600;
     color: #001f66;
-    box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.6);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    transform: translateY(-1px);
 }
 
 nav a {
@@ -38,11 +46,11 @@ nav a {
 }
 
 nav a:hover {
-    color: #d4b600;
+    color: #fedb00;
 }
 
 .hero-img.roundabout {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("files/roundabout.png");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("files/roundabout.png");
     height: 65%;
     margin-left: -10px;
     margin-right: -10px;
@@ -54,7 +62,7 @@ nav a:hover {
 }
 
 .hero-img.report {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("files/compass.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("files/compass.jpg");
     height: 95%;
     margin-left: -10px;
     margin-right: -10px;
@@ -66,7 +74,7 @@ nav a:hover {
 }
 
 .hero-img {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("files/school-hallway.jpg");
+    background-image: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.45)), url("files/school-hallway.jpg");
     height: 65%;
     margin-left: -10px;
     margin-right: -10px;
@@ -87,9 +95,15 @@ nav a:hover {
     color: white;
 }
 
+.hero-content h1 {
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 20px;
+}
+
 header {
     background-color: #001f66;
-    padding: 15px 0;
+    padding: 14px 0;
     margin-top: -10px;
     margin-left: -10px;
     margin-right: -10px;
@@ -108,6 +122,9 @@ header h2 {
     color: #fedb00;
     margin: 0;
     text-align: center;
+    font-size: 1.2rem;
+    letter-spacing: 0.5px;
+    font-weight: 700;
 }
 
 header nav {
@@ -116,8 +133,15 @@ header nav {
 }
 
 header nav a {
-    color: white;
+    color: rgba(255, 255, 255, 0.85);
     text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: 0.3px;
+}
+
+header nav a:hover {
+    color: #fedb00;
 }
 
 /* Hamburger Menu for homepage */
@@ -136,11 +160,12 @@ header nav a {
 
 .hamburger .bar {
     width: 100%;
-    height: 4px;
+    height: 3px;
     background-color: #fff;
     display: block;
     transition: 0.4s;
     transform-origin: center;
+    border-radius: 2px;
 }
 
 .hamburger .bar + .bar {
@@ -173,7 +198,7 @@ header nav a {
 
     header nav a {
         padding: 12px;
-        border-top: 1px solid #444;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
     }
 
     .hamburger {
@@ -189,9 +214,16 @@ header nav a {
 
 .testimonials-slider {
     padding: 60px 0;
-    background-color: #f9f9f9;
+    background-color: #fff;
     text-align: center;
     overflow: hidden;
+}
+
+.testimonials-slider h2 {
+    font-size: 1.6rem;
+    color: #001f66;
+    font-weight: 700;
+    letter-spacing: -0.3px;
 }
 
 .slider-viewport {
@@ -212,25 +244,27 @@ header nav a {
 
 .testimonial-box {
     flex: 0 0 280px;
-    background: white;
+    background: #fafafa;
     padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.08);
-    border: 1px solid #eaeaea;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    border: 1px solid #eee;
     box-sizing: border-box;
 }
 
 .testimonial-box p {
     font-style: italic;
-    color: #555;
+    color: #666;
     margin-bottom: 20px;
-    line-height: 1.6;
+    line-height: 1.7;
+    font-size: 14px;
 }
 
 .testimonial-box h4 {
     margin: 0;
     color: #001f66;
     font-weight: 600;
+    font-size: 14px;
 }
 
 @keyframes scrollTestimonials {
@@ -241,19 +275,75 @@ header nav a {
         transform: translateX(-930px);
     }
 }
-/* lost items  and claim/report css */
+
+/* lost items and claim/report css */
+
+.report-dialog {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+}
+
+.report-dialog h3 {
+    color: #001f66;
+    font-size: 1.3rem;
+    font-weight: 700;
+    text-align: center;
+    margin: 0 0 5px 0;
+}
+
+.report-dialog input,
+.report-dialog textarea {
+    padding: 11px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 15px;
+    font-family: "Inter", "Arial", sans-serif;
+    outline: none;
+    width: 100%;
+    transition: border-color 0.2s;
+}
+
+.report-dialog input:focus,
+.report-dialog textarea:focus {
+    border-color: #001f66;
+}
+
+.report-dialog textarea {
+    resize: vertical;
+    min-height: 90px;
+}
+
+.report-dialog input[type="file"] {
+    padding: 8px;
+    border: 1px dashed #ccc;
+    background: #fafafa;
+    color: #666;
+    font-size: 13px;
+    cursor: pointer;
+}
+
 .items-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
     gap: 20px;
     padding: 20px;
 }
 
 .item-card {
-    border: 1px solid #ddd;
-    border-radius: 8px;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
     overflow: hidden;
-    transition: transform 0.2s;
+    transition:
+        transform 0.2s,
+        box-shadow 0.2s;
+    background: #fff;
+}
+
+.item-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
 }
 
 .item-card img {
@@ -264,6 +354,25 @@ header nav a {
 
 .card-content {
     padding: 15px;
+    text-align: left;
+}
+
+.card-content h3 {
+    margin: 0 0 6px 0;
+    color: #001f66;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.card-content p {
+    font-size: 14px;
+    color: #666;
+    margin: 0 0 10px 0;
+}
+
+.card-meta {
+    font-size: 12px;
+    color: #999;
 }
 
 .modal {
@@ -274,7 +383,7 @@ header nav a {
     top: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0.5);
     justify-content: center;
     align-items: center;
 }
@@ -285,7 +394,7 @@ header nav a {
     border-radius: 12px;
     width: 90%;
     max-width: 500px;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
 }
 
 .claim-dialog img {
@@ -299,14 +408,20 @@ header nav a {
 .claim-input {
     display: flex;
     flex-direction: column;
-    gap: 15px;
+    gap: 12px;
 }
 
 .claim-input input {
-    padding: 12px;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-size: 16px;
+    padding: 11px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 15px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.claim-input input:focus {
+    border-color: #001f66;
 }
 
 .modal-btns {
@@ -316,17 +431,17 @@ header nav a {
 }
 
 .cancel-btn {
-    background-color: #a81e1e;
+    background-color: #e53935;
     color: white;
 }
 
 .cancel-btn:hover {
-    background-color: #670b0b;
+    background-color: #c62828;
     color: white;
 }
 
 .item-claim {
-    padding-bottom: 15px;
+    padding: 0 15px 15px 15px;
 }
 
 footer {
@@ -341,7 +456,7 @@ footer {
     padding: 0;
     list-style: none;
     text-align: center;
-    font-size: 18px;
+    font-size: 15px;
     line-height: 1.6;
     margin-bottom: 0;
     display: flex;
@@ -350,26 +465,26 @@ footer {
 }
 
 .list-inline-item {
-    padding: 0 10px;
+    padding: 0 12px;
 }
 
 .list-inline-item a {
-    color: white;
+    color: rgba(255, 255, 255, 0.7);
     text-decoration: none;
-    opacity: 0.8;
     transition-duration: 0.2s;
+    font-weight: 500;
 }
 
 .list-inline-item a:hover {
+    color: #fedb00;
     opacity: 1;
-    color: #d4b600;
 }
 
 .copyright {
     margin-top: 15px;
     text-align: center;
-    font-size: 13px;
-    color: rgba(255, 255, 255, 0.5);
+    font-size: 12px;
+    color: rgba(255, 255, 255, 0.35);
     margin-bottom: 0;
 }
 
@@ -385,30 +500,242 @@ main {
 main h1 {
     color: #001f66;
     font-size: 2rem;
+    font-weight: 700;
     margin-bottom: 15px;
+    letter-spacing: -0.3px;
 }
 
 main p {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     margin-bottom: 15px;
+    color: #444;
 }
 
 main ul {
-    font-size: 1.1rem;
+    font-size: 1.05rem;
     padding-left: 20px;
     margin-bottom: 15px;
 }
 
 main ul li {
     margin-bottom: 8px;
+    color: #444;
 }
 
 main a {
     color: #001f66;
     text-decoration: none;
     transition-duration: 0.2s;
+    font-weight: 500;
 }
 
 main a:hover {
     color: #d4b600;
+}
+
+#login-screen {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 60vh;
+    gap: 12px;
+}
+
+#login-screen input {
+    padding: 11px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 15px;
+    width: 280px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#login-screen input:focus {
+    border-color: #001f66;
+}
+
+#dashboard {
+    display: none;
+    max-width: 1200px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.dashboard-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.dashboard-header h2 {
+    color: #001f66;
+    margin: 0;
+    font-size: 1.5rem;
+    font-weight: 700;
+}
+
+.tabs {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 25px;
+    border-bottom: 2px solid #eee;
+}
+
+.tab-btn {
+    background: none;
+    border: none;
+    padding: 10px 20px;
+    font-size: 15px;
+    color: #999;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -2px;
+    border-radius: 0;
+    box-shadow: none;
+    font-weight: 500;
+    transition: 0.2s;
+    letter-spacing: 0.2px;
+}
+
+.tab-btn:hover {
+    color: #001f66;
+    background: none;
+    box-shadow: none;
+    transform: none;
+}
+
+.tab-btn.active {
+    color: #001f66;
+    border-bottom: 3px solid #fedb00;
+    font-weight: 700;
+}
+
+.tab-content {
+    display: none;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+.claims-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+}
+
+.claims-table th {
+    background-color: #001f66;
+    color: white;
+    padding: 12px 15px;
+    text-align: left;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.claims-table td {
+    padding: 12px 15px;
+    border-bottom: 1px solid #f0f0f0;
+    color: #444;
+}
+
+.claims-table tr:hover td {
+    background-color: #fafafa;
+}
+
+.claims-table .item-name {
+    font-weight: 600;
+    color: #001f66;
+}
+
+.admin-item-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border: 1px solid #e8e8e8;
+    border-radius: 10px;
+    padding: 16px;
+    margin-bottom: 12px;
+    background: #fff;
+    transition: box-shadow 0.2s;
+}
+
+.admin-item-card:hover {
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+}
+
+.admin-item-card img {
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    flex-shrink: 0;
+}
+
+.admin-item-info {
+    flex: 1;
+    text-align: left;
+}
+
+.admin-item-info h3 {
+    margin: 0 0 5px 0;
+    color: #001f66;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.admin-item-info p {
+    margin: 0 0 4px 0;
+    color: #555;
+    font-size: 14px;
+}
+
+.admin-item-info .meta {
+    font-size: 12px;
+    color: #aaa;
+}
+
+.admin-item-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.admin-item-actions button {
+    padding: 8px 16px;
+    font-size: 13px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.3px;
+}
+
+.badge-claimed {
+    background-color: #fff3cd;
+    color: #856404;
+}
+
+.badge-unclaimed {
+    background-color: #e8f4f8;
+    color: #0c5460;
+}
+
+.badge-resolved {
+    background-color: #d4edda;
+    color: #155724;
+}
+
+.empty-state {
+    text-align: center;
+    color: #bbb;
+    padding: 40px;
+    font-size: 15px;
 }

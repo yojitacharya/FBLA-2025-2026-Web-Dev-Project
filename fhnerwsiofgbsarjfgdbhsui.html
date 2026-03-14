@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="style.css" />
+        <title>Admin Page</title>
+    </head>
+    <body>
+        <header>
+            <div class="container">
+                <h2><span>Lakeside </span>Lost and Found</h2>
+                <nav>
+                    <a href="index.html">Home</a>
+                    <a href="items.html">Items</a>
+                    <a href="report.html">Report Lost Item</a>
+                    <a href="contact.html">Contact Us</a>
+                </nav>
+                <button class="hamburger">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </button>
+            </div>
+        </header>
+
+        <div id="login-screen">
+            <h2 style="color: #001f66">Admin Login</h2>
+            <input type="email" id="admin-email" placeholder="Email" />
+            <input type="password" id="admin-password" placeholder="Password" />
+            <button onclick="adminLogin()">Login</button>
+        </div>
+
+        <div id="dashboard">
+            <div class="dashboard-header">
+                <h2>Admin Dashboard</h2>
+                <button class="cancel-btn" onclick="adminSignOut()">Sign Out</button>
+            </div>
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab('items', this)">Lost Items</button>
+                <button class="tab-btn" onclick="switchTab('claims', this)">Claims</button>
+            </div>
+            <div id="tab-items" class="tab-content active">
+                <div id="admin-items-list"><p class="empty-state">Loading...</p></div>
+            </div>
+            <div id="tab-claims" class="tab-content">
+                <div id="admin-claims-list"><p class="empty-state">Loading...</p></div>
+            </div>
+        </div>
+
+        <footer>
+            <ul class="list-inline">
+                <li class="list-inline-item"><a href="index.html">Home</a></li>
+                <li class="list-inline-item"><a href="items.html">Items</a></li>
+                <li class="list-inline-item"><a href="report.html">Report</a></li>
+                <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+            </ul>
+            <p class="copyright">Lakeside High School &copy; 2026</p>
+        </footer>
+
+        <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+        <script src="script.js"></script>
+    </body>
+</html>

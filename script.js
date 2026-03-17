@@ -164,17 +164,35 @@ async function submitReport() {
     return;
   }
 
+  let imgUrl = null;
+
+  if (imgInput?.files?.[0]) {
+    const file = imgInput.files[0];
+    const fileName = `${Date.now()}-${file.name}`;
+
+    const { error: uploadError } = await _supabase.storage.from("imgs").upload(fileName, file);
+
+    if (uploadError) {
+      alert("Image upload failed: " + uploadError.message);
+      return;
+    }
+
+    const { data } = _supabase.storage.from("imgs").getPublicUrl(fileName);
+
+    imgUrl = data.publicUrl;
+  }
+
   const { error: reportError } = await _supabase.from("lostfound").insert([
     {
       name: name,
       contact: contact,
       description: description,
-      img_url: imgInput?.files?.[0] ? URL.createObjectURL(imgInput.files[0]) : null,
+      img_url: imgUrl,
     },
   ]);
 
   if (reportError) {
-    console.error("Error submitting your report:", reportError.message, reportError.details);
+    console.error("Error submitting your report:", reportError.message);
     alert(`Error: ${reportError.message}`);
     return;
   }

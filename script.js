@@ -10,6 +10,8 @@ document.addEventListener("DOMContentLoaded", () => {
   hamburger.addEventListener("click", () => {
     hamburger.classList.toggle("is-active");
     nav.classList.toggle("is-open");
+    const isOpen = nav.classList.contains("is-open");
+    hamburger.setAttribute("aria-expanded", isOpen);
   });
   const itemsGrid = document.getElementById("items-grid");
   if (itemsGrid) {
@@ -29,6 +31,12 @@ if resolved dont load
 load img, name, desc, etc. in each card.
 */
 
+function escapeHtml(str) {
+  return str?.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;") ?? "";
+}
+
+let allItems = [];
+
 async function fetchLostItems() {
   const { data: items, error } = await _supabase.from("lostfound").select("*").eq("resolved", false).order("created_at", { ascending: false });
 
@@ -37,26 +45,46 @@ async function fetchLostItems() {
     return;
   }
 
+  allItems = items;
+  renderItems(items);
+
+  const searchBar = document.getElementById("search-bar");
+  if (searchBar) {
+    searchBar.replaceWith(searchBar.cloneNode(true));
+    document.getElementById("search-bar").addEventListener("input", () => {
+      const query = document.getElementById("search-bar").value.toLowerCase();
+      const filtered = allItems.filter((item) => item.name?.toLowerCase().includes(query) || item.description?.toLowerCase().includes(query));
+      renderItems(filtered);
+    });
+  }
+}
+
+function renderItems(items) {
   const itemsGrid = document.getElementById("items-grid");
+
+  if (items.length === 0) {
+    itemsGrid.innerHTML = `<p>No items match your search.</p>`;
+    return;
+  }
 
   itemsGrid.innerHTML = items
     .map(
       (item) => `
-          <div class="item-card">
-              <img src="${item.img_url || "files/placeholder.jpg"}" alt="${item.name}">
-              <div class="card-content">
-                  <h3>${item.name}</h3>
-                  <p>${item.description}</p>
-                  <div class="card-meta">
-                    ${item.claimed ? "<span>Claimed</span>" : ""}
-                    <span class="date">${item.created_at.substring(0, 10)}</span>
-                  </div>
-              </div>
-              <div class="item-claim">
-                  <button onclick="startClaim('${item.id}')">Claim</button>
-              </div>
-          </div>
-      `,
+    <div class="item-card">
+        <img src="${item.img_url || "files/placeholder.jpg"}" alt="${escapeHtml(item.name)}">
+        <div class="card-content">
+            <h3>${escapeHtml(item.name)}</h3>
+            <p>${escapeHtml(item.description)}</p>
+            <div class="card-meta">
+              ${item.claimed ? "<span>Claimed</span>" : ""}
+              <span class="date">${item.created_at.substring(0, 10)}</span>
+            </div>
+        </div>
+        <div class="item-claim">
+            <button onclick="startClaim('${item.id}')">Claim</button>
+        </div>
+    </div>
+  `,
     )
     .join("");
 }
@@ -75,9 +103,9 @@ async function startClaim(itemId) {
 
   modalBody.innerHTML = `
     <div class="claim-dialog">
-      <img src="${item.img_url || "files/placeholder.jpg"}" alt="${item.name}">
+      <img src="${item.img_url || "files/placeholder.jpg"}" alt="${escapeHtml(item.name)}">
       <div class="claim-input">
-        <h3>File a claim for ${item.name}</h3>
+        <h3 id="modal-title">File a claim for ${escapeHtml(item.name)}</h3>
         <input type="text" id="claimant-name" placeholder="Your name">
         <input type="text" id="claimant-contact" placeholder="Email or Phone">
         <div class="modal-btns">
@@ -251,11 +279,11 @@ async function loadAdminItems() {
     .map(
       (item) => `
     <div class="admin-item-card">
-      <img src="${item.img_url || "files/placeholder.jpg"}" alt="${item.name}">
+      <img src="${item.img_url || "files/placeholder.jpg"}" alt="${escapeHtml(item.name)}">
       <div class="admin-item-info">
-        <h3>${item.name}</h3>
-        <p>${item.description}</p>
-        <p><strong>Reporter Contact:</strong> ${item.contact || "N/A"}</p>
+        <h3>${escapeHtml(item.name)}</h3>
+        <p>${escapeHtml(item.description)}</p>
+        <p><strong>Reporter Contact:</strong> ${escapeHtml(item.contact || "N/A")}</p>
         <p class="meta">
           Reported: ${item.created_at.substring(0, 10)} &nbsp;|&nbsp;
           <span class="badge ${item.claimed ? "badge-claimed" : "badge-unclaimed"}">
@@ -315,9 +343,9 @@ async function loadClaims() {
           .map(
             (c) => `
           <tr>
-            <td class="item-name">${c.lostfound?.name || "Unknown"}</td>
-            <td>${c.name}</td>
-            <td>${c.contact}</td>
+            <td class="item-name">${escapeHtml(c.lostfound?.name || "Unknown")}</td>
+            <td>${escapeHtml(c.name)}</td>
+            <td>${escapeHtml(c.contact)}</td>
             <td>${c.created_at ? c.created_at.substring(0, 10) : "N/A"}</td>
           </tr>
         `,

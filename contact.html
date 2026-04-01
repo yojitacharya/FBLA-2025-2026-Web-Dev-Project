@@ -13,14 +13,15 @@
         <header>
             <!-- Hamburger menu only on small screens and navigation bar on larger screens -->
             <div class="container">
+                <a href="index.html"><img src="files/ram.png" alt="Lakeside Logo" class="logo" /></a>
                 <h2><span>Lakeside </span>Lost and Found</h2>
                 <nav>
                     <a href="index.html">Home</a>
-                    <a href="items.html">Items</a>
-                    <a href="report.html">Report Lost Item</a>
+                    <a href="items.html" aria-label="lost item listing">Items</a>
+                    <a href="report.html" aria-label="report a lost item that was found">Report Lost Item</a>
                     <a href="contact.html">Contact Us</a>
                 </nav>
-                <button class="hamburger">
+                <button class="hamburger" aria-label="Open navigational menu" aria-expanded="false">
                     <div class="bar"></div>
                     <div class="bar"></div>
                     <div class="bar"></div>
@@ -35,7 +36,7 @@
             </div>
         </div>
         <main id="main">
-            <p>If you have any questions, concerns, or suggestions, please feel free to reach out to us. We value your feedback and are here to help!</p>
+            <p>If you have any questions, concerns, or suggestions, please feel free to reach out to us. We are here to help!</p>
             <p>You can contact us through the following methods:</p>
             <ul>
                 <li>Email: <a href="mailto:yojit_acharya@lakesidesd.org">yojit_acharya@lakesidesd.org</a></li>
@@ -47,7 +48,7 @@
             <div class="faq">
                 <details class="faq-item">
                     <summary>What do I do with a found item?</summary>
-                    <p>Bring it to the Lakeside High School front office. Lakeside staff will store it safely until it is returned to the owner.</p>
+                    <p>You can either bring it to the Lakeside High School office or keep it until contacted by staff to return the item to its owner.</p>
                 </details>
                 <details class="faq-item">
                     <summary>What if no one claims the item?</summary>
@@ -59,7 +60,8 @@
                 <details class="faq-item">
                     <summary>Can I report that I lost an item?</summary>
                     <p>
-                        This form is for reporting items you've found. If you are missing an item and think it may be at the lost and found, check out the
+                        This site is to locate lost items that have been reported by students and staff. If you are missing an item and think it may be at the
+                        lost and found, check out the
                         <a href="lost-and-found.html">Items</a> page.
                     </p>
                 </details>
@@ -75,9 +77,9 @@
         <footer>
             <ul class="list-inline">
                 <li class="list-inline-item"><a href="index.html">Home</a></li>
-                <li class="list-inline-item"><a href="items.html">Items</a></li>
-                <li class="list-inline-item"><a href="report.html">Report</a></li>
-                <li class="list-inline-item"><a href="contact.html">Contact</a></li>
+                <li class="list-inline-item"><a href="items.html" aria-label="lost item listing">Items</a></li>
+                <li class="list-inline-item"><a href="report.html" aria-label="report a lost item that was found">Report</a></li>
+                <li class="list-inline-item"><a href="contact.html">Contact Us</a></li>
             </ul>
             <p class="copyright">Lakeside High School &copy; 2026</p>
         </footer>

@@ -50,8 +50,9 @@ nav a:hover {
 }
 
 .logo {
-    width: 50px;
+    width: 75px;
     height: auto;
+    position: flex;
 }
 
 .hero-img.roundabout {
@@ -120,10 +121,13 @@ nav a:hover {
 
 header {
     background-color: #001f66;
-    padding: 14px 0;
+    padding: 24px 0;
     margin-top: -10px;
     margin-left: -10px;
     margin-right: -10px;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
 .container {
@@ -135,6 +139,10 @@ header {
     padding: 0 20px;
 }
 
+.container > a:first-child {
+    position: absolute;
+    left: 20px;
+}
 header h2 {
     color: #fedb00;
     margin: 0;
@@ -213,6 +221,10 @@ header nav a:hover {
         display: flex;
     }
 
+    .container > a:first-child {
+        position: static;
+    }
+
     header nav a {
         padding: 12px;
         border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -223,7 +235,9 @@ header nav a:hover {
     }
 
     header {
-        position: relative;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
     }
 }
 
@@ -811,3 +825,20 @@ main a:hover {
     font-size: 14px;
     line-height: 1.7;
 }
+
+#search-bar {
+    width: 100%;
+    padding: 11px 14px;
+    border: 1px solid #e0e0e0;
+    border-radius: 6px;
+    font-size: 15px;
+    margin-bottom: 20px;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+#search-bar:focus {
+    border-color: #001f66;
+}
+
+/* soo much typing */

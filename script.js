@@ -71,7 +71,7 @@ function renderItems(items) {
     .map(
       (item) => `
     <div class="item-card">
-        <img src="${item.img_url || "files/placeholder.jpg"}" alt="${escapeHtml(item.name)}">
+        <img src="${item.img_url || "files/placeholder.png"}" alt="${escapeHtml(item.name)}">
         <div class="card-content">
             <h3>${escapeHtml(item.name)}</h3>
             <p>${escapeHtml(item.description)}</p>
@@ -103,7 +103,7 @@ async function startClaim(itemId) {
 
   modalBody.innerHTML = `
     <div class="claim-dialog">
-      <img src="${item.img_url || "files/placeholder.jpg"}" alt="${escapeHtml(item.name)}">
+      <img src="${item.img_url || "files/placeholder.png"}" alt="${escapeHtml(item.name)}">
       <div class="claim-input">
         <h3 id="modal-title">File a claim for ${escapeHtml(item.name)}</h3>
         <input type="text" id="claimant-name" placeholder="Your name">
@@ -279,7 +279,7 @@ async function loadAdminItems() {
     .map(
       (item) => `
     <div class="admin-item-card">
-      <img src="${item.img_url || "files/placeholder.jpg"}" alt="${escapeHtml(item.name)}">
+      <img src="${item.img_url || "files/placeholder.png"}" alt="${escapeHtml(item.name)}">
       <div class="admin-item-info">
         <h3>${escapeHtml(item.name)}</h3>
         <p>${escapeHtml(item.description)}</p>
